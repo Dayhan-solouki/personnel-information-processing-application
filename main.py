@@ -12,7 +12,7 @@ class App(customtkinter.CTk):
     frames = {"frame0": None, "frame1": None, "frame2": None, "frame3": None, "frame4": None, "frame5": None, "frame6": None, "frame7": None, "frame8": None, "frame9": None}
 
     def frame0_selector(self):
-        # App.frames["frame1"].pack_forget()
+        App.frames["frame1"].pack_forget()
         # App.frames["frame2"].pack_forget()
         # App.frames["frame3"].pack_forget()
         # App.frames["frame4"].pack_forget()
@@ -25,14 +25,14 @@ class App(customtkinter.CTk):
 
     def frame1_selector(self):
         App.frames["frame0"].pack_forget()
-        App.frames["frame2"].pack_forget()
-        App.frames["frame4"].pack_forget()
-        App.frames["frame3"].pack_forget()
-        App.frames["frame8"].pack_forget()
-        App.frames["frame5"].pack_forget()
-        App.frames["frame6"].pack_forget()
-        App.frames["frame7"].pack_forget()
-        App.frames["frame9"].pack_forget()
+        # App.frames["frame2"].pack_forget()
+        # App.frames["frame4"].pack_forget()
+        # App.frames["frame3"].pack_forget()
+        # App.frames["frame8"].pack_forget()
+        # App.frames["frame5"].pack_forget()
+        # App.frames["frame6"].pack_forget()
+        # App.frames["frame7"].pack_forget()
+        # App.frames["frame9"].pack_forget()
         App.frames["frame1"].pack(in_=App.main_container,side=tkinter.TOP, fill=tkinter.BOTH, expand=True, padx=0, pady=0)
 
     def frame2_selector(self):
@@ -131,11 +131,11 @@ class App(customtkinter.CTk):
         self.homepage_icon.bind("<Enter>", lambda event, btn=self.homepage_icon: self.on_enter(event, btn))
         self.homepage_icon.bind("<Leave>", lambda event, btn=self.homepage_icon: self.on_leave(event, btn))
 
-        self.order_icon = customtkinter.CTkButton(self.menu_frame, text="Personel", font=("Century Gothic",18.0,"bold"), fg_color="transparent", command=self.frame1_selector, image=self.Prsonel_icon, hover=True, anchor="w", height=70, width=200, text_color=self.mode("text_color"), hover_color=self.mode("hover_color"))
-        self.order_icon.grid(row=2, column=0, padx=5, pady=5) 
+        self.Prsonel_icn = customtkinter.CTkButton(self.menu_frame, text="Personel", font=("Century Gothic",18.0,"bold"), fg_color="transparent", command=self.frame1_selector, image=self.Prsonel_icon, hover=True, anchor="w", height=70, width=200, text_color=self.mode("text_color"), hover_color=self.mode("hover_color"))
+        self.Prsonel_icn.grid(row=2, column=0, padx=5, pady=5) 
 
-        self.order_icon.bind("<Enter>", lambda event, btn=self.order_icon: self.on_enter(event, btn))
-        self.order_icon.bind("<Leave>", lambda event, btn=self.order_icon: self.on_leave(event, btn))
+        self.Prsonel_icn.bind("<Enter>", lambda event, btn=self.Prsonel_icn: self.on_enter(event, btn))
+        self.Prsonel_icn.bind("<Leave>", lambda event, btn=self.Prsonel_icn: self.on_leave(event, btn))
 
         self.product_control = customtkinter.CTkButton(self.menu_frame, text="Raporlar", font=("Century Gothic",18.0,"bold"), fg_color="transparent", command=self.frame2_selector, image=self.Reports_icon, hover=True, anchor="w", height=70, width=200, text_color=self.mode("text_color"), hover_color=self.mode("hover_color"))
         self.product_control.grid(row=3, column=0, padx=5, pady=5) 
@@ -179,7 +179,7 @@ class App(customtkinter.CTk):
         self.homepage_info_frame_1 = customtkinter.CTkFrame(self.Homepage_bottom_frame, width=600, height=500, fg_color=self.mode("infoframe_background"))
         self.homepage_info_frame_1.grid(row=0, column=0,columnspan= 3, rowspan=2, padx=20, pady=20)
 
-        self.homepage_info_frame_2 = customtkinter.CTkScrollableFrame(self.Homepage_bottom_frame, width=830, height=500, fg_color=self.mode("infoframe_background"))
+        self.homepage_info_frame_2 = customtkinter.CTkScrollableFrame(self.Homepage_bottom_frame, width=830, height=450,label_text="Bekleyen İşlemler", label_font=("Century Gothic",17,"bold"), fg_color=self.mode("infoframe_background"))
         self.homepage_info_frame_2.grid(row=0, column=4,columnspan= 3, rowspan=2, padx=20, pady=20)
 
         self.homepage_info_frame_3 = customtkinter.CTkFrame(self.Homepage_bottom_frame, width=600, height=350, fg_color=self.mode("infoframe_background"))
@@ -200,13 +200,37 @@ class App(customtkinter.CTk):
         self.homepage_profil_sts = customtkinter.CTkLabel(self.homepage_info_frame_1, text="Yönetici", font=("Century Gothic",17),height=50 ,width= 300)
         self.homepage_profil_sts.place(relx=0.5, rely=0.68, anchor=tkinter.CENTER)
 
-        self.profile_permission_btn = customtkinter.CTkButton(self.homepage_info_frame_1, text="İzin Ekle", font=("Century Gothic",17), fg_color="green", text_color="white", image=self.permission_icon, width=250, height=50)
-        self.profile_permission_btn.place(relx=0.75, rely=0.9, anchor=tkinter.CENTER)
+        profile_permission_btn = customtkinter.CTkButton(self.homepage_info_frame_1, text="İzin Ekle", font=("Century Gothic",17), fg_color="green", text_color="white", image=self.permission_icon, width=250, height=50)
+        profile_permission_btn.place(relx=0.75, rely=0.9, anchor=tkinter.CENTER)
 
-        self.profile_notif_btn = customtkinter.CTkButton(self.homepage_info_frame_1, text="Bildirim Ekle", font=("Century Gothic",17), fg_color="#E66912", text_color="white", image=self.permission_icon, width=250, height=50)
-        self.profile_notif_btn.place(relx=0.25, rely=0.9, anchor=tkinter.CENTER)
+        profile_notif_btn = customtkinter.CTkButton(self.homepage_info_frame_1, text="Bildirim Ekle", font=("Century Gothic",17), fg_color="#E66912", text_color="white", image=self.permission_icon, width=250, height=50)
+        profile_notif_btn.place(relx=0.25, rely=0.9, anchor=tkinter.CENTER)
+
+        profile_history_lable = customtkinter.CTkLabel(self.homepage_info_frame_3, text="Geçmiş İzinlerim", font=("Century Gothic",17,"bold"))
+        profile_history_lable.place(relx=0.15, rely=0.07, anchor=tkinter.CENTER)
+
+        profile_permission_lable = customtkinter.CTkLabel(self.homepage_info_frame_4, text="Kalan İzinlerim", font=("Century Gothic",17,"bold"))
+        profile_permission_lable.place(relx=0.2, rely=0.07, anchor=tkinter.CENTER)
+
+        profile_notif_lable = customtkinter.CTkLabel(self.homepage_info_frame_5, text="Duyurular", font=("Century Gothic",17,"bold"))
+        profile_notif_lable.place(relx=0.15, rely=0.07, anchor=tkinter.CENTER)
 
 
+        # Personel Design
+        App.frames["frame1"] = customtkinter.CTkFrame(App.main_container, fg_color=self.mode("infoframe_background"))
+
+        # self.Personel_frame = customtkinter.CTkFrame(App.frames["frame1"], fg_color="transparent")
+        # self.Personel_frame.pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=True, padx=0, pady=0)
+
+        self.tabview_page1 = customtkinter.CTkTabview(master=App.frames['frame1'],text_color="white",segmented_button_unselected_color=self.mode("hover_color"), fg_color=self.mode("frame_background"), width=1200)
+        self.tabview_page1.pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=True, padx=10, pady=10)
+        self.tabview_page1._segmented_button.configure(font=('', 17,"bold"), text_color=self.mode("text_color"))
+        self.tabview_page1.add("Personel Listesi")  
+        self.tabview_page1.add("Personel İşlemleri")  
+        self.tabview_page1.set("Personel Listesi") 
+
+        self.personel_show_frame = customtkinter.CTkScrollableFrame(self.tabview_page1.tab("Personel Listesi"), width=1200, height=900,label_text="Personel Listesi", label_font=("Century Gothic",17,"bold"), fg_color=self.mode("infoframe_background"))
+        self.personel_show_frame.place(relx=0.5, rely=0.5, anchor=tkinter.CENTER)
 
         self.frame0_selector()
 
